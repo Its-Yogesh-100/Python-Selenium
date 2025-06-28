@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import os
-import pandas
+import pandas as pd
 
 d={'title':[],'price':[],'link':[]}
 
@@ -29,10 +29,12 @@ for file in os.listdir('data'):
         d['price'].append(price)
         d['link'].append(link)
 
+
         print(d)
         
         
     except Exception as e:
         print(e)
 
-df=p
+df=pd.DataFrame(data=d)
+df.to_csv('data.csv')
